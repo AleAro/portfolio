@@ -1,0 +1,108 @@
+---
+import { 
+  Code, 
+  Database, 
+  Globe, 
+  DeviceMobile, 
+  ChartBar, 
+  GitBranch,
+  CloudArrowUp,
+  Cpu,
+  Terminal,
+  Palette,
+  Brain,
+  Gear
+} from 'phosphor-react';
+
+const skillCategories = [
+  {
+    title: "Programming Languages",
+    icon: Code,
+    skills: [
+      { name: "JavaScript", level: 90 },
+      { name: "Python", level: 85 },
+      { name: "Java", level: 80 },
+      { name: "TypeScript", level: 85 },
+      { name: "C++", level: 75 },
+      { name: "SQL", level: 80 }
+    ]
+  },
+  {
+    title: "Web Development",
+    icon: Globe,
+    skills: [
+      { name: "React", level: 90 },
+      { name: "Node.js", level: 85 },
+      { name: "HTML/CSS", level: 95 },
+      { name: "Vue.js", level: 75 },
+      { name: "Express.js", level: 80 },
+      { name: "Astro", level: 70 }
+    ]
+  },
+  {
+    title: "Data & Analytics",
+    icon: ChartBar,
+    skills: [
+      { name: "Data Analysis", level: 85 },
+      { name: "Machine Learning", level: 75 },
+      { name: "Pandas", level: 80 },
+      { name: "NumPy", level: 80 },
+      { name: "Matplotlib", level: 75 },
+      { name: "Jupyter", level: 85 }
+    ]
+  },
+  {
+    title: "Tools & Technologies",
+    icon: Gear,
+    skills: [
+      { name: "Git", level: 90 },
+      { name: "Docker", level: 70 },
+      { name: "AWS", level: 65 },
+      { name: "MongoDB", level: 75 },
+      { name: "PostgreSQL", level: 80 },
+      { name: "Linux", level: 75 }
+    ]
+  }
+];
+---
+
+<section id="skills" class="py-20 bg-slate-800/50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
+      <p class="text-slate-300 max-w-2xl mx-auto">
+        The technologies and tools I use to bring ideas to life and make data more accessible.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {skillCategories.map((category) => (
+        <div class="bg-slate-800 p-6 rounded-xl">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="bg-blue-500/20 p-3 rounded-lg">
+              <category.icon size={24} className="text-blue-400" />
+            </div>
+            <h3 class="text-xl font-bold">{category.title}</h3>
+          </div>
+          
+          <div class="space-y-4">
+            {category.skills.map((skill) => (
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium">{skill.name}</span>
+                  <span class="text-sm text-slate-400">{skill.level}%</span>
+                </div>
+                <div class="w-full bg-slate-600 rounded-full h-2">
+                  <div 
+                    class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-1000"
+                    style={`width: ${skill.level}%`}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

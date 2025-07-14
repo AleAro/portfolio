@@ -1,0 +1,50 @@
+---
+import { GraduationCap, Heart, Lightbulb } from 'phosphor-react';
+---
+
+<section id="about" class="py-20 bg-slate-800/50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+      <p class="text-slate-300 max-w-2xl mx-auto">
+        Learn more about my background, education, and what drives my passion for technology.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <p class="text-lg text-slate-300 leading-relaxed">
+          I'm a passionate software developer recently graduated from Tecnológico de Monterrey with a strong foundation in computer science and engineering. My mission is to make data and technology more accessible to everyone through innovative solutions.
+        </p>
+        <p class="text-lg text-slate-300 leading-relaxed">
+          Throughout my academic journey and professional experiences, I've developed expertise in various programming languages and technologies, always focusing on creating meaningful impact through code.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm flex items-center gap-2">
+            <GraduationCap size={16} />
+            Recent Graduate
+          </span>
+          <span class="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-sm flex items-center gap-2">
+            <Heart size={16} />
+            Passionate Developer
+          </span>
+          <span class="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm flex items-center gap-2">
+            <Lightbulb size={16} />
+            Innovation Focused
+          </span>
+        </div>
+      </div>
+      
+      <div class="flex justify-center">
+        <div class="relative">
+          <img 
+            src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" 
+            alt="Alejandro Arouesty"
+            class="w-80 h-80 object-cover rounded-2xl shadow-2xl"
+          />
+          <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-2xl"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

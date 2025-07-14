@@ -1,0 +1,49 @@
+---
+import { Heart, GraduationCap } from 'phosphor-react';
+---
+
+<footer class="bg-slate-800 border-t border-slate-700 py-12">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div class="space-y-4">
+        <div class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          Alejandro Arouesty
+        </div>
+        <p class="text-slate-300 text-sm">
+          Software developer passionate about making data and technology more accessible to everyone.
+        </p>
+        <div class="flex items-center gap-2 text-sm text-slate-400">
+          <GraduationCap size={16} />
+          <span>Tecnológico de Monterrey Graduate</span>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="space-y-4">
+        <h3 class="font-semibold">Quick Links</h3>
+        <div class="space-y-2">
+          <a href="#home" class="block text-slate-300 hover:text-blue-400 transition-colors duration-200 text-sm">Home</a>
+          <a href="#about" class="block text-slate-300 hover:text-blue-400 transition-colors duration-200 text-sm">About</a>
+          <a href="#experience" class="block text-slate-300 hover:text-blue-400 transition-colors duration-200 text-sm">Experience</a>
+          <a href="#projects" class="block text-slate-300 hover:text-blue-400 transition-colors duration-200 text-sm">Projects</a>
+          <a href="#contact" class="block text-slate-300 hover:text-blue-400 transition-colors duration-200 text-sm">Contact</a>
+        </div>
+      </div>
+
+      <!-- Mission -->
+      <div class="space-y-4">
+        <h3 class="font-semibold">Mission</h3>
+        <p class="text-slate-300 text-sm">
+          Making data and technology more accessible through innovative solutions and inclusive design.
+        </p>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-700 mt-8 pt-8 text-center">
+      <p class="text-slate-400 text-sm flex items-center justify-center gap-2">
+        © {new Date().getFullYear()} Alejandro Arouesty
+      </p>
+    </div>
+  </div>
+</footer>

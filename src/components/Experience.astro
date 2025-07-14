@@ -1,0 +1,79 @@
+---
+import { Briefcase, Calendar, MapPin } from 'phosphor-react';
+
+const experiences = [
+  {
+    title: "Software Developer Intern",
+    company: "Tech Company",
+    location: "Mexico",
+    period: "2023 - 2024",
+    description: "Developed and maintained web applications using modern technologies. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+    technologies: ["JavaScript", "React", "Node.js", "Python"]
+  },
+  {
+    title: "Research Assistant",
+    company: "Tecnológico de Monterrey",
+    location: "Mexico",
+    period: "2022 - 2023",
+    description: "Conducted research on data accessibility and technology solutions. Contributed to academic papers and presented findings at conferences.",
+    technologies: ["Python", "Data Analysis", "Machine Learning", "Research"]
+  },
+  {
+    title: "Freelance Developer",
+    company: "Independent",
+    location: "Remote",
+    period: "2021 - 2022",
+    description: "Built custom web solutions for small businesses. Focused on creating user-friendly interfaces and efficient backend systems.",
+    technologies: ["HTML/CSS", "JavaScript", "PHP", "MySQL"]
+  }
+];
+---
+
+<section id="experience" class="py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Experience</h2>
+      <p class="text-slate-300 max-w-2xl mx-auto">
+        My professional journey and the experiences that have shaped my development as a software engineer.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      {experiences.map((exp, index) => (
+        <div class="bg-slate-800 p-6 rounded-xl hover:bg-slate-700 transition-all duration-300 transform hover:scale-105 group">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors duration-200 flex items-center gap-2">
+                <Briefcase size={20} />
+                {exp.title}
+              </h3>
+              <p class="text-lg text-blue-400 font-semibold">{exp.company}</p>
+            </div>
+            <div class="flex flex-col md:items-end mt-2 md:mt-0">
+              <span class="text-slate-300 flex items-center gap-1 mb-1">
+                <Calendar size={16} />
+                {exp.period}
+              </span>
+              <span class="text-slate-400 flex items-center gap-1">
+                <MapPin size={16} />
+                {exp.location}
+              </span>
+            </div>
+          </div>
+          
+          <p class="text-slate-300 mb-4 leading-relaxed">
+            {exp.description}
+          </p>
+          
+          <div class="flex flex-wrap gap-2">
+            {exp.technologies.map((tech) => (
+              <span class="bg-slate-700 text-slate-300 px-3 py-1 rounded-full text-sm">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
