@@ -1,19 +1,19 @@
 ---
-import { Heart, GraduationCap } from 'phosphor-react';
+import { Heart, GraduationCap, Code } from 'phosphor-react';
 ---
 
-<footer class="bg-slate-800 border-t border-slate-700 py-12">
+<footer class="bg-slate-900 border-t border-slate-800 py-12">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-3 gap-8">
       <!-- Brand -->
       <div class="space-y-4">
-        <div class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        <div class="text-2xl font-bold text-gradient font-mono">
           Alejandro Arouesty
         </div>
-        <p class="text-slate-300 text-sm">
+        <p class="text-slate-400 leading-relaxed">
           Software developer passionate about making data and technology more accessible to everyone.
         </p>
-        <div class="flex items-center gap-2 text-sm text-slate-400">
+        <div class="flex items-center gap-2 text-sm text-slate-500">
           <GraduationCap size={16} />
           <span>Tecnológico de Monterrey Graduate</span>
         </div>
@@ -21,28 +21,30 @@ import { Heart, GraduationCap } from 'phosphor-react';
 
       <!-- Quick Links -->
       <div class="space-y-4">
-        <h3 class="font-semibold">Quick Links</h3>
-        <div class="space-y-2">
-          <a href="#home" class="block text-slate-300 hover:text-blue-400 transition-colors duration-200 text-sm">Home</a>
-          <a href="#about" class="block text-slate-300 hover:text-blue-400 transition-colors duration-200 text-sm">About</a>
-          <a href="#experience" class="block text-slate-300 hover:text-blue-400 transition-colors duration-200 text-sm">Experience</a>
-          <a href="#projects" class="block text-slate-300 hover:text-blue-400 transition-colors duration-200 text-sm">Projects</a>
-          <a href="#contact" class="block text-slate-300 hover:text-blue-400 transition-colors duration-200 text-sm">Contact</a>
+        <h3 class="font-semibold text-white">Quick Links</h3>
+        <div class="space-y-3">
+          <a href="#home" class="block text-slate-400 hover:text-teal-400 transition-colors duration-200">Home</a>
+          <a href="#about" class="block text-slate-400 hover:text-teal-400 transition-colors duration-200">About</a>
+          <a href="#experience" class="block text-slate-400 hover:text-teal-400 transition-colors duration-200">Experience</a>
+          <a href="#projects" class="block text-slate-400 hover:text-teal-400 transition-colors duration-200">Projects</a>
+          <a href="#contact" class="block text-slate-400 hover:text-teal-400 transition-colors duration-200">Contact</a>
         </div>
       </div>
 
       <!-- Mission -->
       <div class="space-y-4">
-        <h3 class="font-semibold">Mission</h3>
-        <p class="text-slate-300 text-sm">
+        <h3 class="font-semibold text-white">Mission</h3>
+        <p class="text-slate-400 leading-relaxed">
           Making data and technology more accessible through innovative solutions and inclusive design.
         </p>
       </div>
     </div>
 
-    <div class="border-t border-slate-700 mt-8 pt-8 text-center">
-      <p class="text-slate-400 text-sm flex items-center justify-center gap-2">
-        © {new Date().getFullYear()} Alejandro Arouesty
+    <div class="border-t border-slate-800 mt-8 pt-8 text-center">
+      <p class="text-slate-500 flex items-center justify-center gap-2">
+        © {new Date().getFullYear()} Alejandro Arouesty. Built with 
+        <Heart size={16} className="text-red-400" />
+        using Astro, React & Tailwind CSS.
       </p>
     </div>
   </div>

@@ -66,35 +66,37 @@ const skillCategories = [
 ];
 ---
 
-<section id="skills" class="py-20 bg-slate-800/50">
+<section class="py-24 bg-slate-800">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
-      <p class="text-slate-300 max-w-2xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+        Skills & Technologies
+      </h2>
+      <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
         The technologies and tools I use to bring ideas to life and make data more accessible.
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
       {skillCategories.map((category) => (
-        <div class="bg-slate-800 p-6 rounded-xl">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="bg-blue-500/20 p-3 rounded-lg">
-              <category.icon size={24} className="text-blue-400" />
+        <div class="reveal bg-slate-900/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="p-3 bg-gradient-to-r from-teal-500 to-blue-500 rounded-xl">
+              <category.icon size={28} className="text-white" />
             </div>
-            <h3 class="text-xl font-bold">{category.title}</h3>
+            <h3 class="text-2xl font-bold text-white">{category.title}</h3>
           </div>
           
-          <div class="space-y-4">
+          <div class="space-y-6">
             {category.skills.map((skill) => (
-              <div>
-                <div class="flex justify-between items-center mb-2">
-                  <span class="font-medium">{skill.name}</span>
-                  <span class="text-sm text-slate-400">{skill.level}%</span>
+              <div class="group">
+                <div class="flex justify-between items-center mb-3">
+                  <span class="font-medium text-slate-200 group-hover:text-teal-400 transition-colors duration-200">{skill.name}</span>
+                  <span class="text-sm text-slate-400 font-mono">{skill.level}%</span>
                 </div>
-                <div class="w-full bg-slate-600 rounded-full h-2">
+                <div class="w-full bg-slate-700 rounded-full h-2 overflow-hidden">
                   <div 
-                    class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-1000"
+                    class="bg-gradient-to-r from-teal-500 to-blue-500 h-2 rounded-full transition-all duration-1000 ease-out skill-bar"
                     style={`width: ${skill.level}%`}
                   ></div>
                 </div>
@@ -106,3 +108,38 @@ const skillCategories = [
     </div>
   </div>
 </section>
+
+<style>
+  .skill-bar {
+    width: 0;
+    animation: fillBar 1.5s ease-out forwards;
+  }
+
+  @keyframes fillBar {
+    to {
+      width: var(--skill-level);
+    }
+  }
+
+  .reveal.animate-in .skill-bar {
+    animation-play-state: running;
+  }
+</style>
+
+<script>
+  // Animate skill bars when they come into view
+  const skillBars = document.querySelectorAll('.skill-bar');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        const level = (bar as HTMLElement).style.width;
+        (bar as HTMLElement).style.setProperty('--skill-level', level);
+        (bar as HTMLElement).style.width = level;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  skillBars.forEach(bar => observer.observe(bar));
+</script>

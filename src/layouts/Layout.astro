@@ -10,16 +10,94 @@ const { title } = Astro.props;
 <html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Portfolio of Alejandro Arouesty - Software Developer" />
+		<meta name="description" content="Alejandro Arouesty - Software Developer Portfolio" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 	</head>
-	<body class="bg-slate-900 text-white antialiased">
-		<style>
-			@import '../styles/global.css';
-		</style>
+	<body class="bg-slate-900 text-slate-100 font-inter antialiased selection:bg-teal-300 selection:text-teal-900">
+		<div id="cursor" class="fixed w-6 h-6 pointer-events-none z-50 mix-blend-difference">
+			<div class="w-full h-full bg-teal-400 rounded-full opacity-75 transform -translate-x-1/2 -translate-y-1/2"></div>
+		</div>
 		<slot />
+		<script>
+			// Custom cursor
+			const cursor = document.getElementById('cursor');
+			let mouseX = 0;
+			let mouseY = 0;
+			let cursorX = 0;
+			let cursorY = 0;
+
+			document.addEventListener('mousemove', (e) => {
+				mouseX = e.clientX;
+				mouseY = e.clientY;
+			});
+
+			function animateCursor() {
+				const speed = 0.15;
+				cursorX += (mouseX - cursorX) * speed;
+				cursorY += (mouseY - cursorY) * speed;
+				
+				if (cursor) {
+					cursor.style.left = cursorX + 'px';
+					cursor.style.top = cursorY + 'px';
+				}
+				
+				requestAnimationFrame(animateCursor);
+			}
+			animateCursor();
+
+			// Smooth reveal on scroll
+			const observerOptions = {
+				threshold: 0.1,
+				rootMargin: '0px 0px -50px 0px'
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('animate-in');
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll('.reveal').forEach(el => {
+				observer.observe(el);
+			});
+		</script>
+		<style>
+			.font-inter { font-family: 'Inter', sans-serif; }
+			.font-mono { font-family: 'JetBrains Mono', monospace; }
+			
+			.reveal {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+			}
+			
+			.animate-in {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.glow {
+				box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+			}
+
+			.text-gradient {
+				background: linear-gradient(135deg, #14b8a6, #06b6d4, #3b82f6);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			@media (max-width: 768px) {
+				#cursor { display: none; }
+			}
+		</style>
 	</body>
 </html>
