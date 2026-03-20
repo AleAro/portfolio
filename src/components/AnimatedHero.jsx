@@ -84,7 +84,7 @@ const AnimatedHero = () => {
           </motion.a>
 
           <motion.a
-            href="/cv-alejandro-arouesty.pdf"
+            href="/AlejandroArouesty.pdf"
             target="_blank"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
