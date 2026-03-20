@@ -2,10 +2,7 @@ import { motion } from 'framer-motion';
 import {
   Globe,
   BarChart2,
-  BookOpen,
-  GitPullRequest,
   Smartphone,
-  FlaskConical,
   ChevronRight,
   Github,
   Gamepad2
@@ -14,15 +11,50 @@ import {
 // ─── Thumbnails / visuals ────────────────────────────────────────────────────
 
 const VisualDashboard = () => (
-  <div className="absolute inset-0 z-0 opacity-25 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 p-8 flex items-center justify-center">
-    <div className="w-full h-full border border-primary/10 rounded-xl overflow-hidden bg-background/60 flex flex-col gap-3 p-5">
-      <div className="h-5 w-1/3 bg-primary/25 rounded-full" />
-      <div className="grid grid-cols-3 gap-3 flex-1">
-        {[...Array(6)].map((_, i) => (
-          <div key={i} className="bg-surface-high rounded-lg border border-outline/15" />
+  <div className="absolute inset-0 z-0 opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700 p-6 flex flex-col gap-3">
+    {/* Top metric cards */}
+    <div className="grid grid-cols-4 gap-2">
+      {[
+        { label: "Agents Online", val: "24" },
+        { label: "Avg Handle", val: "3:42" },
+        { label: "Queue", val: "7" },
+        { label: "CSAT", val: "94%" },
+      ].map(({ label, val }) => (
+        <div key={label} className="bg-surface-high/80 border border-outline/20 rounded-lg p-2 flex flex-col gap-1">
+          <div className="text-[8px] font-mono text-text-secondary uppercase tracking-wider truncate">{label}</div>
+          <div className="text-sm font-headline font-bold text-primary">{val}</div>
+        </div>
+      ))}
+    </div>
+    {/* Chart area */}
+    <div className="flex-1 bg-surface-high/50 border border-outline/15 rounded-lg p-3 flex flex-col gap-2">
+      <div className="flex items-center justify-between mb-1">
+        <div className="h-2 w-24 bg-primary/20 rounded-full" />
+        <div className="flex gap-1">
+          {["1H","6H","24H"].map(t => (
+            <div key={t} className="text-[7px] font-mono text-outline px-1.5 py-0.5 border border-outline/20 rounded">{t}</div>
+          ))}
+        </div>
+      </div>
+      {/* Sparkline bars */}
+      <div className="flex-1 flex items-end gap-0.5">
+        {[30,55,40,70,45,80,60,75,50,90,65,85,55,70,40,60,80,50,70,45,75,60,85,55].map((h, i) => (
+          <div key={i} className="flex-1 rounded-sm bg-primary/25 border-t border-primary/40" style={{ height: `${h}%` }} />
         ))}
       </div>
-      <div className="h-2 w-2/3 bg-primary/15 rounded-full" />
+    </div>
+    {/* Agent status row */}
+    <div className="flex gap-2">
+      {[
+        { status: "Available", count: 12, color: "bg-green-400/60" },
+        { status: "On Call", count: 8, color: "bg-primary/60" },
+        { status: "After Call", count: 4, color: "bg-secondary/60" },
+      ].map(({ status, count, color }) => (
+        <div key={status} className="flex items-center gap-1.5 bg-surface-high/60 border border-outline/15 rounded-md px-2 py-1">
+          <div className={`w-1.5 h-1.5 rounded-full ${color}`} />
+          <span className="text-[7px] font-mono text-text-secondary">{status} · {count}</span>
+        </div>
+      ))}
     </div>
   </div>
 );
@@ -72,7 +104,7 @@ const VisualDots = () => (
 
 // ─── Project data ─────────────────────────────────────────────────────────────
 
-const GITHUB_URL = 'https://github.com/AleAro21';
+const GITHUB_URL = 'https://github.com/AleAro';
 
 const projects = [
   {
@@ -116,26 +148,6 @@ const projects = [
     playLink: "/play/quetzal",
     image: "/mainbg.png",
   },
-  {
-    title: "Open Source Contributions",
-    description: "Contributed to open-source projects focused on data accessibility and inclusive technology — bug fixes, documentation, and feature additions.",
-    tags: ["Python", "JavaScript", "Git"],
-    category: "Open Source",
-    size: "small",
-    icon: <GitPullRequest className="text-secondary w-6 h-6" />,
-    github: "#",
-    visual: <VisualCode />,
-  },
-  {
-    title: "Educational Tech Tool",
-    description: "Adaptive learning management system matching content to different learning styles, making technology education accessible to diverse student populations.",
-    tags: ["React", "Firebase", "JavaScript"],
-    category: "Education",
-    size: "small",
-    icon: <BookOpen className="text-primary w-6 h-6" />,
-    github: "#",
-    visual: <VisualDots />,
-  },
 ];
 
 // ─── Section ──────────────────────────────────────────────────────────────────
@@ -157,23 +169,16 @@ const AnimatedProjects = () => (
         </p>
       </div>
 
-      {/* Row 1: large + 2 small */}
+      {/* Row 1: Amazon Connect (large) + Earth4J + Ticket System (small) */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px] mb-6">
         {projects.slice(0, 3).map((project, idx) => (
           <BentoCard key={idx} project={project} idx={idx} />
         ))}
       </div>
 
-      {/* Row 2: Quetzal wide */}
-      <div className="mb-6">
+      {/* Row 2: Quetzal (wide) */}
+      <div>
         <BentoCardWide project={projects[3]} idx={3} />
-      </div>
-
-      {/* Row 3: 2 small */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
-        {projects.slice(4, 6).map((project, idx) => (
-          <BentoCard key={idx + 4} project={project} idx={idx + 4} />
-        ))}
       </div>
 
       {/* GitHub CTA */}

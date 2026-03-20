@@ -10,8 +10,8 @@ const contactInfo = [
 ];
 
 const socials = [
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Github,   label: "GitHub",   href: "#" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/alejandro-arouesty-571427206/?locale=es_ES" },
+  { icon: Github,   label: "GitHub",   href: "https://github.com/AleAro" },
 ];
 
 const AnimatedContact = () => {
