@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@theme {
+  --color-surface: #19191d;
+  --color-surface-high: #1f1f24;
+  --color-primary: #7bd0ff;
+  --color-primary-container: #004c69;
+  --color-on-primary-container: #97d8ff;
+  --color-text-primary: #e7e4ec;
+  --color-text-secondary: #acaab1;
+  --color-outline: #47474e;
+  --color-secondary: #c3b1e1;
+}
+
+.mesh-gradient {
+  background-image: radial-gradient(at 0% 0%, rgba(0, 76, 105, 0.15) 0, transparent 50%),
+                    radial-gradient(at 100% 0%, rgba(123, 208, 255, 0.1) 0, transparent 50%);
+}

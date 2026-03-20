@@ -1,52 +1,66 @@
-# Astro Starter Kit: Basics
+# Alejandro Arouesty — Portfolio
 
-```sh
-npm create astro@latest -- --template basics
+Personal portfolio website built with Astro, React, and Tailwind CSS v4.
+
+## Stack
+
+- **Framework:** Astro 5 + React 19 (hybrid islands)
+- **Styling:** Tailwind CSS v4
+- **Animation:** Framer Motion
+- **Icons:** Phosphor React
+
+## Project Structure
+
+```
+src/
+├── layouts/
+│   └── Layout.astro         # HTML shell, fonts, cursor, scroll-reveal
+├── pages/
+│   └── index.astro          # Single-page composition
+├── components/
+│   ├── Navigation.astro
+│   ├── AnimatedHero.jsx
+│   ├── AnimatedAbout.jsx
+│   ├── Experience.astro
+│   ├── Skills.astro
+│   ├── AnimatedProjects.jsx
+│   ├── AnimatedContact.jsx
+│   └── Footer.astro
+└── styles/
+    └── global.css           # Tailwind entry point
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Local Development
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+npm install
+npm run dev       # http://localhost:4321
+npm run build     # production build → dist/
+npm run preview   # preview production build
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Where to Edit Content
 
-## 🧞 Commands
+| Section    | File                                  |
+|------------|---------------------------------------|
+| Hero       | `src/components/AnimatedHero.jsx`     |
+| About      | `src/components/AnimatedAbout.jsx`    |
+| Experience | `src/components/Experience.astro`     |
+| Skills     | `src/components/Skills.astro`         |
+| Projects   | `src/components/AnimatedProjects.jsx` |
+| Contact    | `src/components/AnimatedContact.jsx`  |
+| Navigation | `src/components/Navigation.astro`     |
+| Metadata   | `src/layouts/Layout.astro`            |
 
-All commands are run from the root of the project, from a terminal:
+## Production Checklist
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- [ ] Add `public/cv-alejandro-arouesty.pdf`
+- [ ] Replace social `"#"` placeholder links in `AnimatedContact.jsx`
+- [ ] Replace project `github`/`demo` `"#"` placeholders in `AnimatedProjects.jsx`
+- [ ] Replace example email and phone with real values in `AnimatedContact.jsx`
+- [ ] Connect contact form to a real backend (Formspree, Resend, etc.)
+- [ ] Replace external Pexels images with owned assets in `public/`
 
-## 👀 Want to learn more?
+## Deploy
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Configured for Vercel. Static output — no server-side API routes.
