@@ -1,69 +1,167 @@
 ---
+import {
+  siDocker,
+  siVercel,
+  siGit,
+  siMongodb,
+  siMysql,
+  siNeo4j,
+  siGraphql,
+  siJavascript,
+  siTypescript,
+  siPython,
+  siDotnet,
+  siDart,
+  siNodedotjs,
+  siReact,
+  siFlutter,
+  siNextdotjs,
+  siUnity,
+  siKubernetes,
+  siRust,
+} from 'simple-icons';
+
+// Custom inline icon objects for AWS icons removed from simple-icons v16+
+const customAws = {
+  slug: 'amazonaws',
+  hex: 'FF9900',
+  path: 'M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.072.056.144.056.208 0 .096-.056.192-.176.288l-.576.384c-.08.056-.16.08-.232.08-.096 0-.192-.048-.288-.136a2.98 2.98 0 0 1-.344-.448 7.377 7.377 0 0 1-.296-.56c-.744.88-1.68 1.32-2.808 1.32-.8 0-1.44-.228-1.904-.684-.464-.456-.704-1.064-.704-1.824 0-.808.284-1.464.856-1.96.572-.496 1.336-.744 2.304-.744.32 0 .648.028.992.076.344.048.696.12 1.064.208v-.672c0-.704-.148-1.196-.436-1.484-.296-.288-.8-.428-1.52-.428-.328 0-.664.04-1.008.128a7.41 7.41 0 0 0-1.008.336 2.678 2.678 0 0 1-.328.128.576.576 0 0 1-.144.024c-.128 0-.192-.096-.192-.296v-.464c0-.152.02-.268.068-.336a.72.72 0 0 1 .272-.2c.328-.168.72-.308 1.176-.42.456-.12.936-.176 1.44-.176 1.096 0 1.9.248 2.416.744.508.496.768 1.248.768 2.256v2.968zm-3.88 1.456c.312 0 .632-.056.968-.168.336-.112.636-.316.888-.596.152-.176.264-.368.32-.584.056-.216.088-.472.088-.776v-.376a7.763 7.763 0 0 0-.864-.16 7.078 7.078 0 0 0-.872-.056c-.624 0-1.08.12-1.384.368-.304.248-.452.6-.452 1.064 0 .432.112.756.344.976.224.228.544.308.964.308zm7.468 1.008c-.168 0-.28-.028-.352-.092-.072-.056-.136-.184-.192-.36L7.7 6.956c-.056-.184-.08-.304-.08-.368 0-.144.072-.224.216-.224h.88c.176 0 .296.028.36.092.072.056.128.184.184.36l1.552 6.12 1.44-6.12c.048-.184.104-.304.176-.36.072-.056.2-.092.368-.092h.72c.176 0 .296.028.376.092.072.056.136.184.176.36l1.456 6.192 1.6-6.192c.056-.184.12-.304.184-.36.072-.056.192-.092.36-.092h.832c.144 0 .224.072.224.224 0 .048-.008.096-.016.152a1.4 1.4 0 0 1-.064.224L15.6 12.04c-.056.184-.12.304-.192.36-.072.056-.192.092-.352.092h-.776c-.176 0-.296-.028-.376-.092-.072-.064-.136-.184-.176-.368L12.4 5.948l-1.52 6.036c-.048.184-.104.304-.176.368-.072.064-.2.092-.376.092h-.776zm12.932.24c-.472 0-.944-.056-1.4-.168-.456-.112-.812-.232-1.048-.368-.144-.08-.24-.168-.272-.248a.625.625 0 0 1-.048-.24v-.48c0-.2.076-.296.22-.296.056 0 .112.008.168.024.056.016.14.052.232.088.312.136.648.248 1.016.32.376.072.744.112 1.12.112.592 0 1.052-.104 1.376-.312.324-.208.492-.504.492-.88a.8.8 0 0 0-.22-.568c-.148-.16-.424-.304-.824-.432l-1.184-.368c-.6-.184-1.04-.456-1.312-.816a1.944 1.944 0 0 1-.408-1.2c0-.344.076-.648.228-.912.152-.264.356-.496.616-.68.26-.192.552-.336.88-.432.328-.096.672-.144 1.032-.144.184 0 .372.008.552.032.188.024.36.056.528.088.16.04.312.08.456.128.144.048.256.096.336.144.112.064.192.128.24.2.048.064.072.152.072.264v.448c0 .2-.076.304-.22.304a.997.997 0 0 1-.36-.112 4.4 4.4 0 0 0-1.824-.376c-.536 0-.952.088-1.24.272-.288.184-.436.456-.436.832 0 .224.08.416.24.576.16.16.456.32.88.456l1.16.368c.592.184 1.02.44 1.28.776.26.336.388.72.388 1.144 0 .352-.072.672-.212.952-.148.28-.352.528-.616.736-.264.216-.576.376-.944.488a4.207 4.207 0 0 1-1.216.168z',
+};
+
+const customDynamo = {
+  slug: 'amazondynamodb',
+  hex: '4053D6',
+  path: 'M13.64 4.763c-.45-.285-1.103-.443-1.887-.443-.783 0-1.437.158-1.886.443L3.52 8.48v7.04l6.348 3.717c.449.285 1.103.443 1.886.443.784 0 1.437-.158 1.887-.443L20 15.52V8.48l-6.36-3.717zm-1.887.914c.598 0 1.08.12 1.362.293L18.643 9.3l-6.89 4.032-6.89-4.032 5.528-3.33c.282-.173.764-.293 1.362-.293zm-6.887 3.908 6.24 3.652v6.856l-5.65-3.308a.72.72 0 0 1-.27-.273.708.708 0 0 1-.098-.352v-5.575h-.222zm13.997 0v5.575a.708.708 0 0 1-.098.352.72.72 0 0 1-.27.273l-5.65 3.308v-6.856l6.018-3.652z',
+};
+
+const customAmplify = {
+  slug: 'awsamplify',
+  hex: 'FF9900',
+  path: 'M12 2L2 19.8h4.1l1.8-3.4H12v3.4h4.1L22 2H12zm0 3.4l4.4 8.6H12V5.4zm-2.4 9.6H7.5l2.1-4.1v4.1z',
+};
+
+// Icons whose brand color is black/near-black — override for dark background
+const DARK_OVERRIDE: Record<string, string> = {
+  vercel:     'FFFFFF',
+  nextdotjs:  'FFFFFF',
+  unity:      'FFFFFF',
+  rust:       'CE422B',
+};
+
+const hoverColor = (icon: { slug: string; hex: string }) =>
+  DARK_OVERRIDE[icon.slug] ?? icon.hex;
+
 const categories = [
   {
-    id: "01",
-    title: "Programming Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "C++", "Dart", "C#"],
+    id: '01',
+    title: 'Cloud & Infrastructure',
+    skills: [
+      { name: 'AWS',       icon: customAws },
+      { name: 'DynamoDB',  icon: customDynamo },
+      { name: 'Amplify',   icon: customAmplify },
+      { name: 'Docker',    icon: siDocker },
+      { name: 'Vercel',    icon: siVercel },
+      { name: 'Git',       icon: siGit },
+    ],
   },
   {
-    id: "02",
-    title: "Frameworks & Mobile",
-    skills: ["React Native", "Flutter", "Next.js", "React", "Node.js", "Express"],
+    id: '02',
+    title: 'Data Architecture',
+    skills: [
+      { name: 'MongoDB',  icon: siMongodb },
+      { name: 'MySQL',    icon: siMysql },
+      { name: 'Neo4j',    icon: siNeo4j },
+      { name: 'GraphQL',  icon: siGraphql },
+    ],
   },
   {
-    id: "03",
-    title: "Cloud & Databases",
-    skills: ["AWS Lambda", "API Gateway", "DynamoDB", "Amplify", "AppSync", "MongoDB", "SQL"],
+    id: '03',
+    title: 'Core Engineering',
+    skills: [
+      { name: 'JavaScript', icon: siJavascript },
+      { name: 'TypeScript', icon: siTypescript },
+      { name: 'Python',     icon: siPython },
+      { name: 'C#',         icon: siDotnet },
+      { name: 'Dart',       icon: siDart },
+      { name: 'Node.js',    icon: siNodedotjs },
+      { name: 'React',      icon: siReact },
+      { name: 'Flutter',    icon: siFlutter },
+      { name: 'Next.js',    icon: siNextdotjs },
+      { name: 'Unity',      icon: siUnity },
+    ],
   },
-  {
-    id: "04",
-    title: "Tools & Other",
-    skills: ["Git", "Unity (C#)", "Neo4j", "Three.js", "REST APIs", "JWT"],
-  },
+];
+
+const learning = [
+  { name: 'Kubernetes', icon: siKubernetes },
+  { name: 'Rust',       icon: siRust },
 ];
 ---
 
-<section class="py-28 bg-background relative">
+<section class="py-28 bg-background">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
 
+    <!-- Header -->
     <div class="mb-16 reveal">
       <span class="font-mono text-xs tracking-[0.2em] text-primary uppercase mb-2 block">What I Build With</span>
       <h2 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tight text-text-primary">Skills & Stack</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Three-column category grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
       {categories.map((cat) => (
-        <div class="reveal bg-surface-high border border-outline/10 hover:border-primary/20 rounded-2xl p-8 transition-all duration-300 group">
-          <div class="flex items-center gap-3 mb-6">
+        <div class="reveal bg-surface-high border border-outline/10 hover:border-primary/20 rounded-2xl p-7 transition-all duration-300">
+
+          <div class="flex items-center gap-2 mb-6">
             <span class="font-mono text-xs text-primary">{cat.id}</span>
-            <h3 class="font-headline font-bold text-text-primary text-lg">{cat.title}</h3>
+            <h3 class="font-headline font-bold text-text-primary">{cat.title}</h3>
           </div>
-          <div class="flex flex-wrap gap-2">
+
+          <div class="flex flex-col gap-2">
             {cat.skills.map((skill) => (
-              <span class="px-3.5 py-1.5 bg-surface border border-outline/20 hover:border-primary/30 hover:text-primary text-text-secondary rounded-lg text-xs font-mono uppercase tracking-widest transition-colors duration-200 cursor-default">
-                {skill}
-              </span>
+              <div
+                class="skill-pill"
+                style={`--brand: #${hoverColor(skill.icon)}`}
+              >
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="skill-icon"
+                  aria-label={skill.name}
+                >
+                  <path d={skill.icon.path} />
+                </svg>
+                <span class="skill-name">{skill.name}</span>
+              </div>
             ))}
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Languages row -->
-    <div class="reveal mt-6 bg-surface-high border border-outline/10 rounded-2xl p-8">
+    <!-- Learning section -->
+    <div class="reveal bg-surface-high border border-outline/10 border-dashed rounded-2xl p-7">
       <div class="flex items-center gap-3 mb-6">
-        <span class="font-mono text-xs text-primary">05</span>
-        <h3 class="font-headline font-bold text-text-primary text-lg">Spoken Languages</h3>
+        <span class="font-mono text-xs text-secondary border border-secondary/30 px-2.5 py-0.5 rounded-full uppercase tracking-widest">Learning</span>
+        <p class="text-text-secondary text-sm">Currently exploring</p>
       </div>
-      <div class="flex flex-wrap gap-4">
-        {[
-          { lang: "Spanish", level: "Native" },
-          { lang: "English", level: "Fluent" },
-          { lang: "German",  level: "Advanced" },
-        ].map(({ lang, level }) => (
-          <div class="flex items-center gap-3 bg-surface border border-outline/20 rounded-xl px-5 py-3">
-            <span class="font-headline font-semibold text-text-primary">{lang}</span>
-            <span class="font-mono text-[10px] tracking-widest uppercase text-primary border border-primary/30 px-2 py-0.5 rounded-full">{level}</span>
+      <div class="flex gap-3 flex-wrap">
+        {learning.map((skill) => (
+          <div
+            class="skill-pill skill-pill--lg"
+            style={`--brand: #${hoverColor(skill.icon)}`}
+          >
+            <svg
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              class="skill-icon skill-icon--lg"
+              aria-label={skill.name}
+            >
+              <path d={skill.icon.path} />
+            </svg>
+            <span class="skill-name">{skill.name}</span>
           </div>
         ))}
       </div>
@@ -71,3 +169,49 @@ const categories = [
 
   </div>
 </section>
+
+<style>
+  .skill-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.625rem;
+    border: 1px solid rgba(71, 71, 78, 0.2);
+    color: var(--color-text-secondary);
+    cursor: default;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .skill-pill:hover {
+    color: var(--brand);
+    border-color: color-mix(in srgb, var(--brand) 30%, transparent);
+    background: color-mix(in srgb, var(--brand) 6%, transparent);
+  }
+
+  .skill-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+    flex-shrink: 0;
+    transition: fill 0.2s ease;
+  }
+
+  .skill-name {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: color 0.2s ease;
+  }
+
+  /* Larger variant for the Learning row */
+  .skill-pill--lg {
+    padding: 0.65rem 1rem;
+  }
+
+  .skill-icon--lg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+</style>

@@ -33,7 +33,7 @@ const AnimatedHero = () => {
         >
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           <span className="font-mono text-[10px] tracking-widest uppercase text-text-secondary">
-            Open to new opportunities — 2025
+            {`Open to new opportunities — ${new Date().getFullYear()}`}
           </span>
         </motion.div>
 
