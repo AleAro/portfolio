@@ -1,51 +1,32 @@
 ---
-import { Heart, GraduationCap, Code } from 'phosphor-react';
 ---
 
-<footer class="bg-slate-900 border-t border-slate-800 py-12">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Brand -->
-      <div class="space-y-4">
-        <div class="text-2xl font-bold text-gradient font-mono">
-          Alejandro Arouesty
-        </div>
-        <p class="text-slate-400 leading-relaxed">
-          Software developer passionate about making data and technology more accessible to everyone.
-        </p>
-        <div class="flex items-center gap-2 text-sm text-slate-500">
-          <GraduationCap size={16} />
-          <span>Tecnológico de Monterrey Graduate</span>
-        </div>
-      </div>
+<footer class="bg-background border-t border-outline/10 py-14 px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
 
-      <!-- Quick Links -->
-      <div class="space-y-4">
-        <h3 class="font-semibold text-white">Quick Links</h3>
-        <div class="space-y-3">
-          <a href="#home" class="block text-slate-400 hover:text-teal-400 transition-colors duration-200">Home</a>
-          <a href="#about" class="block text-slate-400 hover:text-teal-400 transition-colors duration-200">About</a>
-          <a href="#experience" class="block text-slate-400 hover:text-teal-400 transition-colors duration-200">Experience</a>
-          <a href="#projects" class="block text-slate-400 hover:text-teal-400 transition-colors duration-200">Projects</a>
-          <a href="#contact" class="block text-slate-400 hover:text-teal-400 transition-colors duration-200">Contact</a>
-        </div>
+    <div>
+      <div class="font-headline font-black text-text-primary text-lg tracking-tight uppercase mb-1">
+        Alejandro Arouesty
       </div>
-
-      <!-- Mission -->
-      <div class="space-y-4">
-        <h3 class="font-semibold text-white">Mission</h3>
-        <p class="text-slate-400 leading-relaxed">
-          Making data and technology more accessible through innovative solutions and inclusive design.
-        </p>
-      </div>
-    </div>
-
-    <div class="border-t border-slate-800 mt-8 pt-8 text-center">
-      <p class="text-slate-500 flex items-center justify-center gap-2">
-        © {new Date().getFullYear()} Alejandro Arouesty. Built with 
-        <Heart size={16} className="text-red-400" />
-        using Astro, React & Tailwind CSS.
+      <p class="font-mono text-[10px] tracking-widest uppercase text-text-secondary">
+        Software Engineer · Mexico City, MX
       </p>
     </div>
+
+    <nav class="flex flex-wrap justify-center gap-6">
+      {["about", "experience", "projects", "contact"].map((link) => (
+        <a
+          href={`#${link}`}
+          class="font-mono text-[10px] tracking-widest uppercase text-text-secondary hover:text-primary transition-colors duration-200 capitalize"
+        >
+          {link}
+        </a>
+      ))}
+    </nav>
+
+    <p class="font-mono text-[10px] tracking-widest uppercase text-outline">
+      © {new Date().getFullYear()} Alejandro Arouesty Galvan
+    </p>
+
   </div>
 </footer>

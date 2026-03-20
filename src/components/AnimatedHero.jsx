@@ -1,152 +1,114 @@
-import { motion } from 'framer-motion';
-import { Code, Download, ArrowRight, Sparkle } from 'phosphor-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { ArrowRight, Download } from 'lucide-react';
+
+const hooks = [
+  "Engineering iOS & Android Apps.",
+  "Cloud-Native. Serverless. Precise.",
+  "From Mexico City to Munich.",
+  "Full-Stack & Mobile Developer.",
+  "AWS Architect. Trilingual. Builder.",
+];
 
 const AnimatedHero = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
+  const [index, setIndex] = useState(0);
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
+  useEffect(() => {
+    const t = setInterval(() => setIndex(i => (i + 1) % hooks.length), 4000);
+    return () => clearInterval(t);
+  }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
-      
-      {/* Floating Elements */}
-      <motion.div
-        variants={floatingVariants}
-        animate="animate"
-        className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full opacity-60"
-      />
-      <motion.div
-        variants={floatingVariants}
-        animate="animate"
-        className="absolute top-40 right-20 w-1 h-1 bg-purple-400 rounded-full opacity-40"
-        style={{ animationDelay: '2s' }}
-      />
-      <motion.div
-        variants={floatingVariants}
-        animate="animate"
-        className="absolute bottom-40 left-20 w-1.5 h-1.5 bg-pink-400 rounded-full opacity-50"
-        style={{ animationDelay: '4s' }}
-      />
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background">
+      <div className="mesh-gradient absolute inset-0 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 md:py-48 relative z-10 w-full">
+
+        {/* Available badge */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-8"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-high border border-outline/20 mb-10"
         >
-          <motion.div variants={itemVariants} className="space-y-4">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 backdrop-blur-sm rounded-full border border-slate-700/50 text-sm text-slate-300 mb-6"
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="font-mono text-[10px] tracking-widest uppercase text-text-secondary">
+            Open to new opportunities — 2025
+          </span>
+        </motion.div>
+
+        {/* Rotating headline */}
+        <div className="h-[100px] md:h-[160px] lg:h-[200px] overflow-hidden mb-8">
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={index}
+              initial={{ y: 80, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -80, opacity: 0 }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+              className="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-[0.9] text-text-primary"
             >
-              <Sparkle size={16} className="text-yellow-400" />
-              <span>Available for new opportunities</span>
-            </motion.div>
-            
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
-              Hi, I'm{' '}
-              <motion.span
-                className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-                initial={{ backgroundPosition: '0% 50%' }}
-                animate={{ backgroundPosition: '100% 50%' }}
-                transition={{ duration: 3, repeat: Infinity, repeatType: 'reverse' }}
-              >
-                Alejandro
-              </motion.span>
-            </h1>
-          </motion.div>
+              {hooks[index]}
+            </motion.h1>
+          </AnimatePresence>
+        </div>
 
-          <motion.p
-            variants={itemVariants}
-            className="text-xl md:text-2xl lg:text-3xl text-slate-300 max-w-4xl mx-auto leading-relaxed"
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="font-sans text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed mb-10"
+        >
+          Software Engineer at{' '}
+          <span className="text-primary font-semibold">Past Post</span> building iOS & Android apps.
+          ITESM Computer Science graduate — exchange at{' '}
+          <span className="text-primary font-semibold">TU Munich</span>.
+          Based in Mexico City, working globally.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-wrap gap-4 items-center"
+        >
+          <motion.a
+            href="#projects"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-2 bg-primary text-background font-headline font-bold px-7 py-3.5 rounded-xl text-base transition-all"
           >
-            Software developer recently graduated from{' '}
-            <span className="text-blue-400 font-semibold">Tecnológico de Monterrey</span>{' '}
-            that tries to make data and technology more accessible to everyone.
-          </motion.p>
+            View My Work <ArrowRight className="w-4 h-4" />
+          </motion.a>
 
+          <motion.a
+            href="/cv-alejandro-arouesty.pdf"
+            target="_blank"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-2 border border-outline/40 hover:border-primary/50 text-text-secondary hover:text-text-primary font-mono text-xs tracking-widest uppercase px-7 py-3.5 rounded-xl transition-all"
+          >
+            <Download className="w-4 h-4" /> Download CV
+          </motion.a>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
+          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          <span className="font-mono text-[10px] tracking-widest uppercase text-text-secondary">Scroll</span>
           <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity }}
+            className="w-5 h-8 border border-outline/40 rounded-full flex justify-center pt-1.5"
           >
-            <motion.a
-              href="#projects"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-semibold text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 flex items-center gap-3"
-            >
-              <Code size={24} />
-              <span>View My Work</span>
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-200" />
-            </motion.a>
-
-            <motion.a
-              href="/cv-alejandro-arouesty.pdf"
-              target="_blank"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="group px-8 py-4 border-2 border-slate-600 hover:border-blue-400 rounded-xl font-semibold text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all duration-300 flex items-center gap-3"
-            >
-              <Download size={24} />
-              <span>Download CV</span>
-            </motion.a>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="pt-12"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="inline-flex flex-col items-center gap-2 text-slate-400 hover:text-slate-300 transition-colors duration-300 cursor-pointer"
-              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              <span className="text-sm">Scroll to explore</span>
-              <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center">
-                <motion.div
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="w-1 h-3 bg-slate-400 rounded-full mt-2"
-                />
-              </div>
-            </motion.div>
+            <div className="w-0.5 h-2 bg-primary/60 rounded-full" />
           </motion.div>
         </motion.div>
       </div>

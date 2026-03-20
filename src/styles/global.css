@@ -1,15 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
 @import "tailwindcss";
 
 @theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Manrope", sans-serif;
+  --font-mono: "Space Grotesk", monospace;
+
+  --color-background: #0e0e10;
   --color-surface: #19191d;
   --color-surface-high: #1f1f24;
   --color-primary: #7bd0ff;
   --color-primary-container: #004c69;
   --color-on-primary-container: #97d8ff;
+  --color-secondary: #c3b1e1;
   --color-text-primary: #e7e4ec;
   --color-text-secondary: #acaab1;
   --color-outline: #47474e;
-  --color-secondary: #c3b1e1;
+
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+  }
+}
+
+.glass-card {
+  background: rgba(31, 31, 36, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(71, 71, 78, 0.2);
 }
 
 .mesh-gradient {

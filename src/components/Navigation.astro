@@ -1,113 +1,191 @@
 ---
 ---
 
-<nav class="fixed top-0 w-full z-40 transition-all duration-300" id="navbar">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="flex justify-between items-center py-6">
-      <!-- Logo -->
-      <a href="#" class="text-xl font-bold text-gradient font-mono">
-        AA
-      </a>
-      
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="#about" class="nav-link text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors duration-200">
-          <span class="font-mono text-teal-400 text-xs">01.</span> About
-        </a>
-        <a href="#experience" class="nav-link text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors duration-200">
-          <span class="font-mono text-teal-400 text-xs">02.</span> Experience
-        </a>
-        <a href="#projects" class="nav-link text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors duration-200">
-          <span class="font-mono text-teal-400 text-xs">03.</span> Work
-        </a>
-        <a href="#contact" class="nav-link text-sm font-medium text-slate-300 hover:text-teal-400 transition-colors duration-200">
-          <span class="font-mono text-teal-400 text-xs">04.</span> Contact
-        </a>
-        <a 
-          href="/cv-alejandro-arouesty.pdf" 
-          target="_blank"
-          class="ml-4 px-4 py-2 border border-teal-400 text-teal-400 rounded font-mono text-sm hover:bg-teal-400/10 transition-all duration-200"
-        >
-          Resume
-        </a>
-      </div>
+<nav class="nav-pill" id="navbar">
+  <a href="#" class="nav-logo">Alejandro Arouesty</a>
 
-      <!-- Mobile Menu Button -->
-      <button 
-        id="mobile-menu-btn" 
-        class="md:hidden flex flex-col justify-center items-center w-6 h-6 space-y-1 group"
-      >
-        <span class="w-6 h-0.5 bg-slate-300 transition-all duration-300 group-hover:bg-teal-400"></span>
-        <span class="w-6 h-0.5 bg-slate-300 transition-all duration-300 group-hover:bg-teal-400"></span>
-        <span class="w-6 h-0.5 bg-slate-300 transition-all duration-300 group-hover:bg-teal-400"></span>
-      </button>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="hidden md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 bg-slate-800/95 backdrop-blur-md rounded-lg mt-2">
-        <a href="#about" class="block px-3 py-2 text-slate-300 hover:text-teal-400 transition-colors duration-200">
-          <span class="font-mono text-teal-400 text-xs">01.</span> About
-        </a>
-        <a href="#experience" class="block px-3 py-2 text-slate-300 hover:text-teal-400 transition-colors duration-200">
-          <span class="font-mono text-teal-400 text-xs">02.</span> Experience
-        </a>
-        <a href="#projects" class="block px-3 py-2 text-slate-300 hover:text-teal-400 transition-colors duration-200">
-          <span class="font-mono text-teal-400 text-xs">03.</span> Work
-        </a>
-        <a href="#contact" class="block px-3 py-2 text-slate-300 hover:text-teal-400 transition-colors duration-200">
-          <span class="font-mono text-teal-400 text-xs">04.</span> Contact
-        </a>
-        <a 
-          href="/cv-alejandro-arouesty.pdf" 
-          target="_blank"
-          class="block mx-3 my-2 px-4 py-2 border border-teal-400 text-teal-400 rounded font-mono text-sm text-center hover:bg-teal-400/10 transition-all duration-200"
-        >
-          Resume
-        </a>
-      </div>
-    </div>
+  <div class="nav-links">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#experience" class="nav-link">Experience</a>
+    <a href="#projects" class="nav-link">Work</a>
+    <a href="#contact" class="nav-link">Contact</a>
   </div>
+
+  <a href="/cv-alejandro-arouesty.pdf" target="_blank" class="nav-resume">Resume</a>
+
+  <button class="nav-mobile-btn" id="mobile-btn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#projects" class="mobile-link">Work</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="/cv-alejandro-arouesty.pdf" target="_blank" class="mobile-resume">Resume</a>
+</div>
+
 <script>
-  // Navbar background on scroll
+  const navbar = document.getElementById('navbar');
+  const btn = document.getElementById('mobile-btn');
+  const drawer = document.getElementById('mobile-drawer');
+
   window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 100) {
-      navbar?.classList.add('bg-slate-900/95', 'backdrop-blur-md', 'border-b', 'border-slate-800');
-    } else {
-      navbar?.classList.remove('bg-slate-900/95', 'backdrop-blur-md', 'border-b', 'border-slate-800');
-    }
+    if (window.scrollY > 60) navbar?.classList.add('scrolled');
+    else navbar?.classList.remove('scrolled');
   });
 
-  // Mobile menu toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  mobileMenuBtn?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-  });
-
-  // Close mobile menu when clicking on a link
-  const mobileLinks = mobileMenu?.querySelectorAll('a');
-  mobileLinks?.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
-    });
-  });
-
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e: Event) {
-      e.preventDefault();
-      const target = document.querySelector((e.currentTarget as HTMLAnchorElement).getAttribute('href')!);
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
+  btn?.addEventListener('click', () => drawer?.classList.toggle('open'));
+  drawer?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
 </script>
+
+<style>
+  .nav-pill {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 60rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1.75rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(71, 71, 78, 0.25);
+    background: rgba(14, 14, 16, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 50;
+    animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .nav-pill.scrolled {
+    background: rgba(14, 14, 16, 0.85);
+    border-color: rgba(71, 71, 78, 0.4);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  .nav-logo {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .nav-link {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--color-primary); }
+
+  .nav-resume {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-on-primary-container);
+    background: var(--color-primary-container);
+    padding: 0.45rem 1.1rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .nav-resume:hover { opacity: 0.85; }
+
+  .nav-mobile-btn {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-mobile-btn span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--color-text-secondary);
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .nav-mobile-btn:hover span { background: var(--color-primary); }
+
+  .mobile-drawer {
+    position: fixed;
+    top: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 60rem;
+    background: var(--color-surface);
+    border: 1px solid rgba(71, 71, 78, 0.3);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    z-index: 49;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-8px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .mobile-drawer.open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+  }
+  .mobile-link {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: color 0.2s, background 0.2s;
+  }
+  .mobile-link:hover { color: var(--color-primary); background: rgba(123,208,255,0.05); }
+  .mobile-resume {
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-on-primary-container);
+    background: var(--color-primary-container);
+    padding: 0.65rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    text-align: center;
+    transition: opacity 0.2s;
+  }
+  .mobile-resume:hover { opacity: 0.85; }
+
+  @media (max-width: 768px) {
+    .nav-links, .nav-resume { display: none; }
+    .nav-mobile-btn { display: flex; }
+  }
+</style>
