@@ -33,11 +33,20 @@ const AnimatedContact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    await new Promise(r => setTimeout(r, 1800));
-    setSending(false);
-    setSent(true);
-    setForm({ name: '', email: '', message: '' });
-    setTimeout(() => setSent(false), 4000);
+    try {
+      const res = await fetch('https://formspree.io/f/mnjgeann', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSent(true);
+        setForm({ name: '', email: '', message: '' });
+        setTimeout(() => setSent(false), 4000);
+      }
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
