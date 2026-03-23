@@ -65,11 +65,11 @@ const AnimatedHero = () => {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="font-sans text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed mt-0 mb-5"
         >
-          From{' '}
-          <span className="text-primary font-semibold">Mexico City</span>, curious by nature and
-          passionate about technology. I've always been the kind of person who needs to understand how
-          things work which is exactly what drew me to programming. I love the logic, the problem
-          solving, and the satisfaction of building something from nothing
+          Based in{' '}
+          <span className="text-primary font-semibold">Mexico City</span>. I enjoy breaking down
+          complex problems and turning ideas into clean, purposeful software.
+          Always curious — always building. Got something in mind?{' '}
+          <span className="text-primary font-semibold">Let's talk.</span>
         </motion.p>
 
         {/* CTAs */}
