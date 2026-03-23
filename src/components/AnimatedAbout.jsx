@@ -5,7 +5,7 @@ import { MapPin, GraduationCap, Languages, Briefcase } from 'lucide-react';
 
 const facts = [
   { icon: Briefcase, label: "Role", value: "Software Engineer" },
-  { icon: GraduationCap, label: "Education", value: "B.S. CS, ITESM · Exchange TU Munich" },
+  { icon: GraduationCap, label: "Education", value: "B.S. CS, ITESM" },
   { icon: MapPin, label: "Location", value: "Mexico City, MX" },
   { icon: Languages, label: "Languages", value: "Spanish · English · German" },
 ];
@@ -53,7 +53,7 @@ const AnimatedAbout = () => {
               <motion.p variants={item} className="text-text-secondary text-lg leading-relaxed">
                 I studied Computer Science at{' '}
                 <span className="text-text-primary font-semibold">ITESM</span>
-                <span className="text-text-primary font-semibold">TU Munich</span>. I speak Spanish,
+                . I speak Spanish,
                 English, and German, which has shaped how I collaborate with teams and people from
                 very different backgrounds.
               </motion.p>
