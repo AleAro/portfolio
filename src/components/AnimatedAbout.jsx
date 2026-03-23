@@ -45,7 +45,7 @@ const AnimatedAbout = () => {
                 I'm a Software Engineer from{' '}
                 <span className="text-text-primary font-semibold">Mexico</span>, driven by
                 curiosity for how things work. I've always been the kind of person enjoys to learn,
-                take on challenges, and dig into problems until they make sense  which is e
+                take on challenges, and dig into problems until they make sense which is
                 what drew me to programming. I love the logic and problem-solving side of it, and the feeling
                 of building something from scratch.
               </motion.p>
