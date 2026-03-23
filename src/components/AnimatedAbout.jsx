@@ -44,7 +44,7 @@ const AnimatedAbout = () => {
               <motion.p variants={item} className="text-text-secondary text-lg leading-relaxed">
                 I'm a Software Engineer from{' '}
                 <span className="text-text-primary font-semibold">Mexico</span>, driven by
-                curiosity for how things work. I've always been the kind of person who loves to learn,
+                curiosity for how things work. I've always been the kind of person enjoys to learn,
                 take on challenges, and dig into problems until they make sense  which is e
                 what drew me to programming. I love the logic and problem-solving side of it, and the feeling
                 of building something from scratch.
@@ -55,7 +55,7 @@ const AnimatedAbout = () => {
                 <span className="text-text-primary font-semibold">ITESM</span>
                 . I speak Spanish,
                 English, and German, which has shaped how I collaborate with teams and people from
-                very different backgrounds.
+                various backgrounds.
               </motion.p>
 
               {/* Fact cards */}
