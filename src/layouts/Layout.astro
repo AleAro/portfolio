@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 export interface Props {
   title: string;
@@ -23,6 +24,7 @@ const { title } = Astro.props;
     <div id="cursor" class="cursor-dot"></div>
     <slot />
     <Analytics />
+    <SpeedInsights />
     <script>
       const cursor = document.getElementById('cursor');
       let mx = 0, my = 0, cx = 0, cy = 0;
