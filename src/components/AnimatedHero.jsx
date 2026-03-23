@@ -16,7 +16,22 @@ const AnimatedHero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background">
-      <div className="mesh-gradient absolute inset-0 pointer-events-none" />
+      {/* Gradient orbs */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-primary/8 blur-[120px]" />
+        <div className="absolute top-1/3 -right-40 w-[400px] h-[400px] rounded-full bg-secondary/10 blur-[100px]" />
+        <div className="absolute bottom-0 left-1/3 w-[350px] h-[350px] rounded-full bg-primary/6 blur-[90px]" />
+        <div className="absolute top-1/4 left-1/2 w-[250px] h-[250px] rounded-full bg-secondary/6 blur-[80px]" />
+        {/* Dot grid */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+              <circle cx="1.5" cy="1.5" r="1.5" fill="#7bd0ff" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dots)" />
+        </svg>
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 md:py-48 relative z-10 w-full">
 

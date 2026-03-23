@@ -327,7 +327,7 @@ const AnimatedProjects = () => (
       </div>
 
       {/* Row 1: Amazon Connect (large) + Earth4J + Ticket System (small) */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px] mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-12 md:auto-rows-[280px] gap-6 mb-6">
         {projects.slice(0, 3).map((project, idx) => (
           <BentoCard key={idx} project={project} idx={idx} />
         ))}
@@ -378,7 +378,7 @@ const BentoCard = ({ project, idx }) => (
     className={`
       rounded-2xl bg-surface-high border border-outline/10 relative overflow-hidden group
       hover:border-primary/20 transition-all duration-500
-      ${project.size === 'large' ? 'md:col-span-8 md:row-span-2' : 'md:col-span-4 md:row-span-1'}
+      ${project.size === 'large' ? 'min-h-[480px] md:min-h-0 md:col-span-8 md:row-span-2' : 'min-h-[280px] md:min-h-0 md:col-span-4 md:row-span-1'}
     `}
   >
     {/* Bottom gradient overlay */}
