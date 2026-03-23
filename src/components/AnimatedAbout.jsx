@@ -4,10 +4,10 @@ import { useRef } from 'react';
 import { MapPin, GraduationCap, Languages, Briefcase } from 'lucide-react';
 
 const facts = [
-  { icon: Briefcase,     label: "Current Role",  value: "Software Engineer I · Past Post" },
-  { icon: GraduationCap, label: "Education",      value: "B.S. CS, ITESM · Exchange TU Munich" },
-  { icon: MapPin,        label: "Location",       value: "Mexico City, MX" },
-  { icon: Languages,     label: "Languages",      value: "Spanish · English · German" },
+  { icon: Briefcase, label: "Role", value: "Software Engineer" },
+  { icon: GraduationCap, label: "Education", value: "B.S. CS, ITESM · Exchange TU Munich" },
+  { icon: MapPin, label: "Location", value: "Mexico City, MX" },
+  { icon: Languages, label: "Languages", value: "Spanish · English · German" },
 ];
 
 const AnimatedAbout = () => {
@@ -42,16 +42,20 @@ const AnimatedAbout = () => {
             {/* Left — text + fact cards */}
             <div className="space-y-8">
               <motion.p variants={item} className="text-text-secondary text-lg leading-relaxed">
-                I'm a Software Engineer based in Mexico City, currently building iOS and Android applications at{' '}
-                <span className="text-text-primary font-semibold">Past Post</span> with a focus on front-end
-                excellence and AWS serverless back-ends (Lambda, API Gateway, DynamoDB).
+                I'm a Software Engineer from{' '}
+                <span className="text-text-primary font-semibold">Mexico</span>, driven by
+                curiosity for how things work. I've always been the kind of person who loves to learn,
+                take on challenges, and dig into problems until they make sense  which is e
+                what drew me to programming. I love the logic and problem-solving side of it, and the feeling
+                of building something from scratch.
               </motion.p>
 
               <motion.p variants={item} className="text-text-secondary text-lg leading-relaxed">
-                I studied Computer Science at <span className="text-text-primary font-semibold">ITESM</span> and
-                completed an exchange in Electrical Engineering at{' '}
-                <span className="text-text-primary font-semibold">TU Munich</span>. I'm fluent in Spanish,
-                English, and German — which shapes how I approach global collaboration and cross-cultural teams.
+                I studied Computer Science at{' '}
+                <span className="text-text-primary font-semibold">ITESM</span>
+                <span className="text-text-primary font-semibold">TU Munich</span>. I speak Spanish,
+                English, and German, which has shaped how I collaborate with teams and people from
+                very different backgrounds.
               </motion.p>
 
               {/* Fact cards */}

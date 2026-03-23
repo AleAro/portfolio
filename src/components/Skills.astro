@@ -19,6 +19,7 @@ import {
   siUnity,
   siKubernetes,
   siRust,
+  siGooglecloud,
 } from 'simple-icons';
 
 // Custom inline icon objects for AWS icons removed from simple-icons v16+
@@ -32,6 +33,12 @@ const customDynamo = {
   slug: 'amazondynamodb',
   hex: '4053D6',
   path: 'M13.64 4.763c-.45-.285-1.103-.443-1.887-.443-.783 0-1.437.158-1.886.443L3.52 8.48v7.04l6.348 3.717c.449.285 1.103.443 1.886.443.784 0 1.437-.158 1.887-.443L20 15.52V8.48l-6.36-3.717zm-1.887.914c.598 0 1.08.12 1.362.293L18.643 9.3l-6.89 4.032-6.89-4.032 5.528-3.33c.282-.173.764-.293 1.362-.293zm-6.887 3.908 6.24 3.652v6.856l-5.65-3.308a.72.72 0 0 1-.27-.273.708.708 0 0 1-.098-.352v-5.575h-.222zm13.997 0v5.575a.708.708 0 0 1-.098.352.72.72 0 0 1-.27.273l-5.65 3.308v-6.856l6.018-3.652z',
+};
+
+const customAzure = {
+  slug: 'microsoftazure',
+  hex: '0078D4',
+  path: 'M5.483 21.3H.45L11.753 2.682a.53.53 0 0 1 .917 0L23.55 21.3h-5.033l-6.544-11.37L5.483 21.3zm6.107-3.22 2.039-3.544H9.552l2.038 3.544z',
 };
 
 const customAmplify = {
@@ -93,8 +100,10 @@ const categories = [
 ];
 
 const learning = [
-  { name: 'Kubernetes', icon: siKubernetes },
-  { name: 'Rust',       icon: siRust },
+  { name: 'Kubernetes',   icon: siKubernetes },
+  { name: 'Rust',         icon: siRust },
+  { name: 'Google Cloud', icon: siGooglecloud },
+  { name: 'Azure',        icon: customAzure },
 ];
 ---
 

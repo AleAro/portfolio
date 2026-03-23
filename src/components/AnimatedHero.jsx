@@ -3,11 +3,7 @@ import { useState, useEffect } from 'react';
 import { ArrowRight, Download } from 'lucide-react';
 
 const hooks = [
-  "Engineering iOS & Android Apps.",
-  "Cloud-Native. Serverless. Precise.",
-  "From Mexico City to Munich.",
-  "Full-Stack & Mobile Developer.",
-  "AWS Architect. Trilingual. Builder.",
+  "Software Engineer"
 ];
 
 const AnimatedHero = () => {
@@ -37,34 +33,28 @@ const AnimatedHero = () => {
           </span>
         </motion.div>
 
-        {/* Rotating headline */}
-        <div className="h-[100px] md:h-[160px] lg:h-[200px] overflow-hidden mb-8">
-          <AnimatePresence mode="wait">
-            <motion.h1
-              key={index}
-              initial={{ y: 80, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -80, opacity: 0 }}
-              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-[0.9] text-text-primary"
-            >
-              {hooks[index]}
-            </motion.h1>
-          </AnimatePresence>
-        </div>
+        {/* Headline */}
+        <motion.h1
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          className="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-[0.9] text-text-primary mb-6"
+        >
+          {hooks[0]}
+        </motion.h1>
 
         {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="font-sans text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed mb-10"
+          className="font-sans text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed mt-0 mb-5"
         >
-          Software Engineer at{' '}
-          <span className="text-primary font-semibold">Past Post</span> building iOS & Android apps.
-          ITESM Computer Science graduate — exchange at{' '}
-          <span className="text-primary font-semibold">TU Munich</span>.
-          Based in Mexico City, working globally.
+          From{' '}
+          <span className="text-primary font-semibold">Mexico City</span>, curious by nature and
+          passionate about technology. I've always been the kind of person who needs to understand how
+          things work which is exactly what drew me to programming. I love the logic, the problem
+          solving, and the satisfaction of building something from nothing
         </motion.p>
 
         {/* CTAs */}

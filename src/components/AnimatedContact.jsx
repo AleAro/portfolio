@@ -4,14 +4,14 @@ import { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Github, Send } from 'lucide-react';
 
 const contactInfo = [
-  { icon: Mail,  label: "Email",    value: "arouesty21@gmail.com",   href: "mailto:arouesty21@gmail.com" },
-  { icon: Phone, label: "Phone",    value: "+52 56 3441 3469",        href: "tel:+525634413469" },
-  { icon: MapPin, label: "Location", value: "Mexico City, MX",        href: null },
+  { icon: Mail, label: "Email", value: "arouesty21@gmail.com", href: "mailto:arouesty21@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+52 56 3441 3469", href: "tel:+525634413469" },
+  { icon: MapPin, label: "Location", value: "Mexico City, MX", href: null },
 ];
 
 const socials = [
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/alejandro-arouesty-571427206/?locale=es_ES" },
-  { icon: Github,   label: "GitHub",   href: "https://github.com/AleAro" },
+  { icon: Github, label: "GitHub", href: "https://github.com/AleAro" },
 ];
 
 const AnimatedContact = () => {
@@ -57,7 +57,7 @@ const AnimatedContact = () => {
             {/* Left — contact info */}
             <div className="space-y-6">
               <motion.p variants={item} className="text-text-secondary text-lg leading-relaxed max-w-md">
-                Interested in working together or just want to say hi? Reach out — I'm always open to
+                Interested in working together or just want to say hi? Reach out :) I'm always open to
                 interesting projects and conversations.
               </motion.p>
 
@@ -118,8 +118,8 @@ const AnimatedContact = () => {
                   <h3 className="font-headline font-bold text-text-primary text-xl mb-6">Send a Message</h3>
 
                   {[
-                    { id: 'name',    type: 'text',  placeholder: 'Your name',          label: 'Name' },
-                    { id: 'email',   type: 'email', placeholder: 'your@email.com',     label: 'Email' },
+                    { id: 'name', type: 'text', placeholder: 'Your name', label: 'Name' },
+                    { id: 'email', type: 'email', placeholder: 'your@email.com', label: 'Email' },
                   ].map(f => (
                     <div key={f.id}>
                       <label htmlFor={f.id} className="block font-mono text-[10px] tracking-widest uppercase text-text-secondary mb-2">{f.label}</label>
