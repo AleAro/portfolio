@@ -98,24 +98,6 @@ const AnimatedHero = () => {
             <Download className="w-4 h-4" /> Download CV
           </motion.a>
         </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-        >
-          <span className="font-mono text-[10px] tracking-widest uppercase text-text-secondary">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity }}
-            className="w-5 h-8 border border-outline/40 rounded-full flex justify-center pt-1.5"
-          >
-            <div className="w-0.5 h-2 bg-primary/60 rounded-full" />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
